@@ -16,5 +16,5 @@ jobs:
           username: ${{secrets.SSH_USER}}
 
           script: |
-            if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git clone https://github.com/appleboy/ssh-action.git; fi
+            if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git@github.com:vchitepu/re-bots.git; fi
             echo "Deployment successful to server"
