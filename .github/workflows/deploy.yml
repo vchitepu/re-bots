@@ -15,6 +15,6 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           user: ${{secrets.SSH_USER}}
           command: |
-            if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git@github.com:vchitepu/re-bots.git; fi
+            if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git clone git@github.com:vchitepu/re-bots.git; fi
             echo "Deployment successful to server"
             pm2 restart all
