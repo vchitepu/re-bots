@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Bot Repo
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USER}}
+
+          script: |
+            if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git clone https://github.com/appleboy/ssh-action.git; fi
+            echo "Deployment successful to server"
