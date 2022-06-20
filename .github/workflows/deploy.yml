@@ -9,13 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Bot Repo
-        uses: appleboy/ssh-action@v0.1.4
+        uses: fifsky/ssh-action@master
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USER}}
-          port: 22
-
-          script: |
+          user: ${{secrets.SSH_USER}}
+          command: |
             if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git@github.com:vchitepu/re-bots.git; fi
             echo "Deployment successful to server"
