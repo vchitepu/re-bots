@@ -17,3 +17,4 @@ jobs:
           command: |
             if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git@github.com:vchitepu/re-bots.git; fi
             echo "Deployment successful to server"
+            pm2 restart all
