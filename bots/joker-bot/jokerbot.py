@@ -20,5 +20,9 @@ async def on_message(message):
             await message.channel.send(joke.get_random_joke())
 
 
+        if message.content.startswith('dm me'):
+            await client.send_message(message.author, "Hello!!!")
+
+
 client.run(os.getenv('JOKER_BOT_SECRET'))
 
