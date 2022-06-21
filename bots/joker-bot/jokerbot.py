@@ -21,7 +21,8 @@ async def on_message(message):
 
 
         if message.content.startswith('dm me'):
-            await client.send_message(message.author, "Hello!!!")
+            dm = await message.author.create_dm()
+            await dm.send("Hello!!!")
 
 
 client.run(os.getenv('JOKER_BOT_SECRET'))
