@@ -24,7 +24,7 @@ async def on_message(message):
             dm = await message.author.create_dm()
             await dm.send("Hello!!!")
 
-    if isinstance(message.channel, discord.channel.DMChannel) and message.author != bot.user:
+    if isinstance(message.channel, discord.channel.DMChannel) and message.author != client.user:
         dm = await message.author.create_dm()
         await dm.send('You replied to my DM!!!!!!')
 
