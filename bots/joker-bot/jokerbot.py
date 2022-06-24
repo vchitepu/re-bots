@@ -20,5 +20,14 @@ async def on_message(message):
             await message.channel.send(joke.get_random_joke())
 
 
+        if message.content.startswith('dm me'):
+            dm = await message.author.create_dm()
+            await dm.send("Hello!!!")
+
+    if isinstance(message.channel, discord.channel.DMChannel) and message.author != client.user:
+        dm = await message.author.create_dm()
+        await dm.send('You replied to my DM!!!!!!')
+
+
 client.run(os.getenv('JOKER_BOT_SECRET'))
 
