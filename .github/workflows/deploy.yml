@@ -17,4 +17,8 @@ jobs:
           command: |
             if [ -d /root/re-bots ]; then cd /root/re-bots && git pull ; else git clone git@github.com:vchitepu/re-bots.git; fi
             echo "Deployment successful to server"
-            pm2 restart all
+            pm2 delete all
+            pm2 start /root/re-bots/bots/joker-bot/jokerbot.py --name jokerbot --interpreter /usr/bin/python3
+            echo "Started JokerBot"
+            
+
