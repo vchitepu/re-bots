@@ -24,7 +24,7 @@ async def on_message(message):
             dm = await message.author.create_dm()
             await dm.send(joke.get_random_joke())
 
-    elif isinstance(message.channel, discord.channel.DMChannel) and message.author != client.user:
+    if isinstance(message.channel, discord.channel.DMChannel) and message.author != client.user:
         if message.content.startwith('thats really funny'):
             dm = await message.author.create_dm()
             await dm.send('ikr')
