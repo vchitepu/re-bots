@@ -22,6 +22,7 @@ jobs:
             echo "Deployment successful to server"
             pm2 delete all
             pm2 start /root/re-bots/bots/joker-bot/jokerbot.py --name jokerbot --interpreter /usr/bin/python3
+            pm2 start /root/re-bots/bots/crypto-bot/cryptobot.py --name cryptobot --interpreter /usr/bin/python3
             echo "Started JokerBot"
 
 
